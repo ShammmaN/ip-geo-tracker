@@ -1,13 +1,16 @@
-# netviz – Live Network Flow Visualizer
+# ip-geo-tracker – Live Network Flow Visualizer
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-shammmanek-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/shammmanek)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > Sniff traffic on a network interface, geolocate every IP address, and
 > watch connections appear in real time on an interactive world map.
 
-`netviz` is a small, self-contained tool for visualizing network traffic.
-It captures packets with **scapy**, groups them into flows, resolves each
-source/destination IP to an approximate geographic location using MaxMind
-and/or an online fallback, and streams the result to a browser that renders
-flows as animated lines on a Leaflet map.
+`ip-geo-tracker` is a small, self-contained tool for visualizing network
+traffic. It captures packets with **scapy**, groups them into flows,
+resolves each source/destination IP to an approximate geographic location
+using MaxMind and/or an online fallback, and streams the result to a
+browser that renders flows as animated lines on a Leaflet map.
 
 > **Note** — IP geolocation is approximate. It should not be used to
 > determine a user's physical location. VPNs, proxies, CGNAT, mobile
@@ -30,7 +33,10 @@ flows as animated lines on a Leaflet map.
   system `traceroute` binary or scapy as a fallback.
 - **Persistent connection log** – every unique `(src, dst, proto)` triple
   is written to a timestamped log file.
-- **Ignore list** – one click in the UI hides a specific connection.
+- **Live filter** – search the connections list by IP, hostname or
+  protocol.
+- **Ignore list** – one click (or one "select all") hides a set of
+  connections from the UI.
 - **Single configuration file** – every tunable, including the basemap API
   key, lives in [`backend/config.py`](backend/config.py).
 
@@ -47,7 +53,7 @@ flows as animated lines on a Leaflet map.
 Optional but recommended:
 
 - The system `traceroute` binary (install via `apt install traceroute`
-  or equivalent). If unavailable, `netviz` falls back to scapy.
+  or equivalent). If unavailable, `ip-geo-tracker` falls back to scapy.
 
 ---
 
@@ -55,8 +61,8 @@ Optional but recommended:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-user>/netviz.git
-cd netviz/backend
+git clone https://github.com/<your-user>/ip-geo-tracker.git
+cd ip-geo-tracker/backend
 
 # 2. Create and activate a virtual environment
 python -m venv .venv
@@ -118,8 +124,10 @@ You should see:
 - A world map with a basemap layer.
 - A **stats panel** in the top-left corner with live counters.
 - A **connections list** in the bottom-left corner. Hover a row to
-  highlight the corresponding line on the map; uncheck the box to add the
-  connection to the ignore list.
+  highlight the corresponding line on the map; uncheck the box to add
+  the connection to the ignore list; use the "All" checkbox to toggle
+  every visible connection at once; type in the search box to filter by
+  IP, hostname or protocol.
 - Markers for every geolocated IP. Local addresses are jittered slightly
   around the host's location so they don't overlap.
 
@@ -148,7 +156,7 @@ You should see:
                 │  browser (frontend/app.js)                       │
                 │    • Leaflet map + CartoDB tiles                 │
                 │    • draws lines, arrows, markers, tooltips      │
-                │    • connection list with ignore checkboxes      │
+                │    • connection list with filter + ignore        │
                 └──────────────────────────────────────────────────┘
 ```
 
@@ -166,7 +174,7 @@ You should see:
 6. The `pump_events` task drains the queue and broadcasts events to every
    connected WebSocket client.
 7. The frontend renders each flow as a polyline + arrowhead and manages
-   markers, tooltips, highlighting and the connection list.
+   markers, tooltips, highlighting, filtering and the connection list.
 
 ---
 
@@ -238,7 +246,7 @@ fresh on every backend start.
 ## Project layout
 
 ```
-netviz/
+ip-geo-tracker/
 ├── backend/
 │   ├── app.py              # FastAPI application & lifespan
 │   ├── capture.py          # scapy capture engine (background thread)
@@ -270,19 +278,18 @@ netviz/
 
 ---
 
-
 ## Support the project
 
-netviz is a hobby project maintained in my free time. If it saved you some
-hours of work, helped you debug a network issue, or you just like the idea,
-you can support its development:
+`ip-geo-tracker` is developed and maintained in my free time, with no
+corporate backing and no ads. If you'd like to say thanks, you can buy me
+a coffee:
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-shammmanek-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/shammmanek)
 
 Every coffee is appreciated — it directly funds new features, better
 geolocation, and more map overlays. Thank you! ❤️
 
-https://buymeacoffee.com/shammmanek
+---
 
 ## License
 
