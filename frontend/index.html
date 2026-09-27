@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>netviz – live network flow visualizer</title>
+
+  <!-- Leaflet CSS (map library) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <!-- Full-window map -->
+  <div id="map"></div>
+
+  <!-- Stats panel (top-left) -->
+  <div id="panel">
+    <h1>netviz</h1>
+    <div class="row"><span>Flows:</span><b id="stat-flows">0</b></div>
+    <div class="row"><span>IPs:</span><b id="stat-ips">0</b></div>
+    <div class="row"><span>External IP:</span><b id="stat-extip">—</b></div>
+    <div class="row"><span>Status:</span><b id="stat-status">connecting…</b></div>
+    <div class="legend">
+      <span class="dot tcp"></span> TCP
+      <span class="dot udp"></span> UDP
+      <span class="dot icmp"></span> ICMP
+    </div>
+  </div>
+
+  <!-- Connections list (bottom-left) -->
+  <div id="connections">
+    <div class="conn-header" id="conn-header">
+      <span>Connections (<span id="conn-count">0</span>)</span>
+
+      <div class="conn-header-actions">
+        <label class="select-all-wrap"
+               title="Select / deselect all detected connections">
+          <input type="checkbox" id="select-all" />
+          <span>All</span>
+        </label>
+        <button id="conn-toggle" title="collapse/expand">▾</button>
+      </div>
+    </div>
+
+    <!-- Filter bar: live search by IP, hostname or protocol -->
+    <div class="conn-filter">
+      <input type="search"
+             id="conn-search"
+             placeholder="Filter by IP, hostname or protocol…"
+             autocomplete="off"
+             spellcheck="false" />
+      <button id="conn-search-clear"
+              title="Clear filter"
+              type="button">×</button>
+    </div>
+
+    <div class="conn-list" id="conn-list"></div>
+    <div class="conn-empty" id="conn-empty" hidden>No matching connections</div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
