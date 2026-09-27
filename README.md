@@ -293,7 +293,7 @@ geolocation, and more map overlays. Thank you! ❤️
 
 You can also support me by crytpo tips :) 
 
-![Bitcoin QR](assets/bitcoin-qr.png)
+![Bitcoin QR](assets/qr-receive-share.png)
 
 My Bitcoin address to receive:
 bc1qct5ghy5hthpp7n5egn36a6lnvujsxqhp3wcmu4
