@@ -3,14 +3,32 @@
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-shammmanek-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/shammmanek)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+My Bitcoin address to receive:
+bc1qct5ghy5hthpp7n5egn36a6lnvujsxqhp3wcmu4
+
 > Sniff traffic on a network interface, geolocate every IP address, and
 > watch connections appear in real time on an interactive world map.
+
+
+Your network, on a world map. Live !
+
+What if you could see your internet?
+Every day, your computer sends thousands of packets out into the world. To Google's servers. To Netflix. To some machine in Kansas you've never heard of. It all happens in milliseconds — invisible, untouchable, until you decide to look.
+ip-geo-tracker is that look.
+You run it locally on your Linux machine. It listens on your network interface — not in the cloud, not on some remote server, but on your own hardware. Every packet that leaves or returns to your computer is analyzed on the fly: who sent it, to whom, over which protocol, and — most interestingly — where the other end actually is.
+And then the magic begins. Lines start appearing on a world map. Warsaw → Dublin. Warsaw → Kansas City. Warsaw → Perth. Each one is your connection. Each one has its own IP address, approximate location, hostname, and ISP. The colour tells you whether it's TCP, UDP, or ICMP. The thickness tells you how heavy the traffic is. Old connections fade and disappear, new ones take their place.
+You can filter by IP, hostname, or protocol. You can click any connection and see its route. You can silence the ones that don't interest you. You can finally understand what your computer is really doing when you think it's doing nothing at all.
+This is not a tool for network admins. It's a tool for anyone who has ever wondered where the internet actually goes.
+
+![Screenshot](assets/screenshot.png)
 
 `ip-geo-tracker` is a small, self-contained tool for visualizing network
 traffic. It captures packets with **scapy**, groups them into flows,
 resolves each source/destination IP to an approximate geographic location
 using MaxMind and/or an online fallback, and streams the result to a
 browser that renders flows as animated lines on a Leaflet map.
+
+
 
 > **Note** — IP geolocation is approximate. It should not be used to
 > determine a user's physical location. VPNs, proxies, CGNAT, mobile
@@ -307,3 +325,5 @@ bc1qct5ghy5hthpp7n5egn36a6lnvujsxqhp3wcmu4
 
 This project is licensed under the **MIT License**. See the `LICENSE` file
 for details.
+
+
