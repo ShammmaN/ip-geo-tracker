@@ -289,6 +289,16 @@ a coffee:
 Every coffee is appreciated — it directly funds new features, better
 geolocation, and more map overlays. Thank you! ❤️
 
+You can also support me by crytpo tips :) 
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-shammmanek-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/shammmanek)
+
+My Bitcoin address to receive:
+bc1qct5ghy5hthpp7n5egn36a6lnvujsxqhp3wcmu4
+
+
+
+
 ---
 
 ## License
